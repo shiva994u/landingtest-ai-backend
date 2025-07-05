@@ -2,13 +2,13 @@ services:
   - type: web
     name: landingtest-ai-backend
     env: node
-    buildCommand: npm install && npx playwright install chromium
-    startCommand: npm start
     plan: free
+    buildCommand: |
+      npm install
+      npx playwright install chromium
+    startCommand: node src/index.js
     envVars:
-      - key: OPENROUTER_API_KEY
-        sync: false
-      - key: SUPABASE_URL
-        sync: false
-      - key: SUPABASE_SECRET
-        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: 0
