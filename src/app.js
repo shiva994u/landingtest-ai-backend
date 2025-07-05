@@ -6,12 +6,17 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin:
+      process.env.MODE === "development"
+        ? "http://localhost:5173"
+        : "https://landingpage-adtech-api.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use("/simulate", simulateRouter);
 
