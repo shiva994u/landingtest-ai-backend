@@ -11,8 +11,9 @@ app.use(
     origin: (origin, callback) => {
       const allowedOrigins = [
         "http://localhost:5173",
-        "https://landingtest-adtech-ui.onrender.com",
+        "https://landingpage-adtech-api.onrender.com",
       ];
+      console.log("UI Origin:", origin);
       if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
