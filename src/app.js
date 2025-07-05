@@ -6,23 +6,12 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = [
-        "http://localhost:5173",
-        "https://landingpage-adtech-api.onrender.com",
-      ];
-      console.log("UI Origin:", origin);
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: ["GET", "POST", "OPTIONS"],
-  })
-);
+app.use(cors({
+  origin: 'https://landingtest-adtech-ui.onrender.com', // http://localhost:5173
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 app.use(express.json());
 app.use("/simulate", simulateRouter);
