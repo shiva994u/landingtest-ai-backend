@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "postinstall": "npm rebuild canvas && puppeteer install"
+    "postinstall": "npm rebuild canvas"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,7 @@
     "heatmap.js": "^2.0.5",
     "jsdom": "^26.1.0",
     "openai": "^5.8.2",
-    "puppeteer": "^24.11.2",
+    "puppeteer": "^22.1.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
