@@ -6,17 +6,19 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-// ✅ Allow your frontend domain
 app.use(
   cors({
     origin: "https://landingtest-adtech-ui.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Access-Control-Allow-Origin",
+    ],
   })
 );
 
-// ✅ Handle preflight (OPTIONS) requests
 app.options("*", cors());
 
 app.use(express.json());
