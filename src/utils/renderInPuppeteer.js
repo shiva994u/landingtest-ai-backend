@@ -3,6 +3,7 @@ import puppeteer from "puppeteer";
 export const renderInPuppeteer = async (html) => {
   const browser = await puppeteer.launch({
     headless: "new",
+    executablePath: puppeteer.executablePath(), // Ensures correct path
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
